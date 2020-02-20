@@ -70,7 +70,7 @@ function Cards({ hero }) {
     return (
         <Wrapper>
             <MediaCardWrapper onClick={() => setShowHeroInfo(true)}>
-                <Name>
+                <Name data-testid={`${hero.id}_name`}>
                     {hero.name}
                 </Name>
                 <MediaImage>

@@ -1,7 +1,6 @@
 // Modules
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components';
-import CryptoJS from 'crypto-js';
 
 // Components
 import Modal from 'components/Modal/Modal';
@@ -30,7 +29,7 @@ function HeroInfo({ closeModal, hero }) {
         >
             <ContainerModal>
                 {hero.description &&
-                    <p>
+                    <p data-testid={`${hero.id}_description`}>
                         <strong>Descrição</strong><br />
                         {hero.description}
                     </p>
@@ -45,7 +44,7 @@ function HeroInfo({ closeModal, hero }) {
 
                 {comics &&
                     <>
-                        <a href={comics.url} target='_blank'>
+                        <a data-testid={`${hero.id}_quadrinhos`} href={comics.url} target='_blank'>
                             <strong>Quadrinhos</strong>
                         </a>
                         <br />
@@ -54,7 +53,7 @@ function HeroInfo({ closeModal, hero }) {
 
                 {!!hero.urls.some(item => item.type === 'wiki') &&
                     <>
-                        <a href={hero.urls.find(item => item.type === 'wiki').url} target='_blank'>
+                        <a data-testid={`${hero.id}_biografia`} href={hero.urls.find(item => item.type === 'wiki').url} target='_blank'>
                             <strong>Biografia</strong>
                         </a>
                         <br />
@@ -62,21 +61,21 @@ function HeroInfo({ closeModal, hero }) {
                 }
 
                 {!!hero.series.returned &&
-                    <p>
+                    <p data-testid={`${hero.id}_series`}>
                         <strong>Algumas séries ({hero.series.returned}): </strong><br />
                         {hero.series.items.map((item, index) => <span key={index}>{index > 0 && `, `}{item.name}</span>)}
                     </p>
                 }
 
                 {!!hero.stories.returned &&
-                    <p>
+                    <p data-testid={`${hero.id}_stories`}>
                         <strong>Algumas estórias ({hero.stories.returned}): </strong><br />
                         {hero.stories.items.map((item, index) => <span key={index}>{index > 0 && `, `}{item.name}</span>)}
                     </p>
                 }
 
                 {!!hero.events.returned &&
-                    <p>
+                    <p data-testid={`${hero.id}_event`}>
                         <strong>Alguns eventos ({hero.events.returned}): </strong><br />
                         {hero.events.items.map((item, index) => <span key={index}>{index > 0 && `, `}{item.name}</span>)}
                     </p>

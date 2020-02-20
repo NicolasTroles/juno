@@ -120,7 +120,7 @@ const ModalDefault = ({ title, visible, iconClose, mobileFullScreen, closeButton
         }}
     >
         <ModalWrapper>
-            <ButtonClosedStyled onClick={onClickAway}>
+            <ButtonClosedStyled onClick={onClickAway} data-testid='closeModalButton'>
                 <p>
                     X
                 </p>
@@ -128,7 +128,7 @@ const ModalDefault = ({ title, visible, iconClose, mobileFullScreen, closeButton
             {!noHeader
                 ?
                 <ModalHeader>
-                    <Title tag="h4" fontWeight="bold" color="grey1" marginBottom="none">
+                    <Title tag="h4" fontWeight="bold" color="grey1" marginBottom="none" dataTestId='modalTitle'>
                         {title}
                     </Title>
                 </ModalHeader>

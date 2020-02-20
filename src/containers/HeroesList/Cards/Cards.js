@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import StackGrid from 'react-stack-grid';
 import { BeatLoader } from 'react-spinners';
+import PropTypes from 'prop-types'
 
 // Components
 import Card from './Card/Card';
@@ -46,7 +47,8 @@ function Cards({ heroes, loading, fetchMoreHeroes }) {
                 next={fetchMoreHeroes}
                 hasMore={true}
                 loader={
-                    <Align>
+                    loading &&
+                    <Align data-testid='loading'>
                         <BeatLoader
                             size={15}
                             color={'#555'}
@@ -59,6 +61,18 @@ function Cards({ heroes, loading, fetchMoreHeroes }) {
             </InfiniteScroll>
         </Wrapper>
     )
+}
+
+Cards.propTypes = {
+    heroes: PropTypes.array.isRequired,
+    loading: PropTypes.bool.isRequired,
+    fetchMoreHeroes: PropTypes.func.isRequired,
+}
+
+Cards.deafultProps = {
+    heroes: [],
+    loading: false,
+    fetchMoreHeroes: () => { },
 }
 
 export default Cards

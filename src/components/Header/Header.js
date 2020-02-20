@@ -85,12 +85,12 @@ class Header extends Component {
                                     Menu
                             </DropdownToggle>
                                 <DropdownMenu right>
-                                    <DropdownItem onClick={this.logout}>
-                                        Logout
-                                </DropdownItem>
-                                    <DropdownItem divider />
                                     <DropdownItem >
                                         <Link to='myInfo'>Meus dados</Link>
+                                    </DropdownItem>
+                                    <DropdownItem divider />
+                                    <DropdownItem onClick={this.logout}>
+                                        Logout
                                     </DropdownItem>
                                 </DropdownMenu>
 
